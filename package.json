@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --exit-child src/server.ts",
+    "migrate": "prisma migrate dev"
+  },
   "dependencies": {
     "express": "^4.17.3"
   },
