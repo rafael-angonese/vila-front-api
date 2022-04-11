@@ -1,13 +1,18 @@
 import { PrismaClient } from "@prisma/client";
 import { prismaClient } from "../../database/prismaClient";
+import { PrismaError } from "../../errors/PrismaError";
 
 export class DeleteFairyService {
     async execute(id: string): Promise<PrismaClient['Fairy']> {
 
-        const fairy = await prismaClient.fairy.delete({
-            where: { id },
-        })
+        try {
+            const fairy = await prismaClient.fairy.delete({
+                where: { id },
+            })
 
-        return fairy;
+            return fairy;
+        } catch (error) {
+            throw new PrismaError(error)
+        }
     }
 }

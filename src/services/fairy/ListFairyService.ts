@@ -1,11 +1,17 @@
 import { PrismaClient } from "@prisma/client";
 import { prismaClient } from "../../database/prismaClient";
+import { PrismaError } from "../../errors/PrismaError";
 
 export class ListFairyService {
     async execute(): Promise<PrismaClient['Fairy'][]> {
 
-        const fairies = await prismaClient.fairy.findMany()
+        try {
+            const fairies = await prismaClient.fairy.findMany()
 
-        return fairies;
+            return fairies;
+            
+        } catch (error) {
+            throw new PrismaError(error)
+        }
     }
 }

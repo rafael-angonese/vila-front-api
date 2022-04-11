@@ -1,5 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { prismaClient } from "../../database/prismaClient";
+import { NotFoundError } from "../../errors/NotFoundError";
+import { PrismaError } from "../../errors/PrismaError";
 import { ShowFairyService } from "./ShowFairyService";
 
 const showService = new ShowFairyService();
@@ -16,18 +18,23 @@ export class UpdateFairyService {
         const fairy = await showService.execute(id)
 
         if (!fairy) {
-            throw new Error('Not Found Fairy')
+            throw new NotFoundError()
         }
 
-        const update = await prismaClient.fairy.update({
-            where: {
-                id: id
-            },
-            data: {
-                ...fairyParams,
-            }
-        })
+        try {
+            const update = await prismaClient.fairy.update({
+                where: {
+                    id: id
+                },
+                data: {
+                    ...fairyParams,
+                }
+            })
 
-        return update;
+            return update;
+
+        } catch (error) {
+            throw new PrismaError(error)
+        }
     }
 }
