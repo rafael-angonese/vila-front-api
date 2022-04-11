@@ -6,7 +6,7 @@ export class ShowFairyService {
     async execute(id: string): Promise<PrismaClient['Fairy']> {
 
         try {
-            const fairy = await prismaClient.fairy.findFirst({
+            const fairy = await prismaClient.fairy.findUnique({
                 where: {
                     id
                 },
