@@ -4,6 +4,8 @@ import { ListFairyController } from '../controllers/fairy/ListFairyController'
 import { ShowFairyController } from '../controllers/fairy/ShowFairyController'
 import { UpdateFairyController } from '../controllers/fairy/UpdateFairyController'
 import { DeleteFairyController } from '../controllers/fairy/DeleteFairyController'
+import validate from '../middlewares/yup-validator'
+import fairySchema from '../validators/fairy.schema'
 
 const createController = new CreateFairyController()
 const listController = new ListFairyController()
@@ -31,7 +33,7 @@ router.get('/', listController.handle)
  * @param {string} gender.body - Fairy gender
  * @returns {Error}  default - Unexpected error
  */
-router.post('/', createController.handle)
+router.post('/', validate(fairySchema), createController.handle)
 
 
 /**
@@ -51,7 +53,7 @@ router.get('/:id', showController.handle)
  * @param {string} gender.body - Fairy gender
  * @returns {Error}  default - Unexpected error
  */
- router.put('/:id', updateController.handle)
+ router.put('/:id', validate(fairySchema), updateController.handle)
 
 /**
  * @route DELETE /fairies/:id
