@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only --ignore-watch node_modules --exit-child src/server.ts",
-    "migrate": "prisma migrate dev"
+    "migrate": "prisma migrate dev",
+    "generate": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "3.12.0",
