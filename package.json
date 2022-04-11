@@ -7,7 +7,7 @@
     "node": "16"
   },
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node -r dotenv/config dist/server.js",
     "prepare": "yarn prisma generate",
     "build": "tsc --build",
     "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only --ignore-watch node_modules --exit-child src/server.ts",
