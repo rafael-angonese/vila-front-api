@@ -9,7 +9,7 @@ const showService = new ShowFairyService();
 type FairyRequest = {
     name: string;
     element: string;
-    health_point: string;
+    health_point: number;
 };
 
 export class UpdateFairyService {
