@@ -14,7 +14,7 @@ const router = Router()
 
 /**
  * @route GET /contacts
- * @group Contact - List contacts
+ * @group Contact
  * @returns {object} 200 - Contacts list
  * @returns {Error}  default - Unexpected error
  */
@@ -22,7 +22,7 @@ router.get('/', listController.handle)
 
 /**
  * @route POST /contacts
- * @group Contact - Create contact
+ * @group Contact
  * @returns {object} 200 - Contact created
  * @param {string} name.body.required - Contact Name
  * @param {string} email.body.required - Contact email
@@ -34,7 +34,7 @@ router.post('/', createController.handle)
 
 /**
  * @route GET /contacts/:id
- * @group Contact - Show contacts
+ * @group Contact
  * @returns {object} 200 - Contact
  * @returns {Error}  default - Unexpected error
  */
@@ -42,7 +42,7 @@ router.get('/:id', showController.handle)
 
 /**
  * @route DELETE /contacts/:id
- * @group Contact - Delete contacts
+ * @group Contact
  * @returns {object} 200 - Contact
  * @returns {Error}  default - Unexpected error
  */

@@ -8,8 +8,8 @@ export class DeleteContactController {
 
         const { id } = request.params
 
-        const contacts = await deleteService.execute(id);
+        const contact = await deleteService.execute(id);
 
-        return response.json(contacts)
+        return response.json(contact)
     }
 }
