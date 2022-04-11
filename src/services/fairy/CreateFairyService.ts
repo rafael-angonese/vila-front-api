@@ -5,7 +5,7 @@ import { PrismaError } from "../../errors/PrismaError";
 type FairyRequest = {
     name: string;
     element: string;
-    gender: string;
+    health_point: number;
 };
 
 export class CreateFairyService {

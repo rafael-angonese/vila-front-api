@@ -23,7 +23,7 @@ model Fairy {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name  String
   element String
-  gender String
+  health_point Int
 
   @@map("fairies")
 }

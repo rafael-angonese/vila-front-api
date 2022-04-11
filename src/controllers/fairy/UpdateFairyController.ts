@@ -8,9 +8,9 @@ export class UpdateFairyController {
 
         const { id } = request.params
 
-        const { name, element, gender } = request.body
+        const { name, element, health_point } = request.body
 
-        const fairy = await updateService.execute(id, { name, element, gender });
+        const fairy = await updateService.execute(id, { name, element, health_point });
 
         return response.json(fairy)
     }

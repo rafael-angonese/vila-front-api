@@ -30,7 +30,7 @@ router.get('/', listController.handle)
  * @returns {object} 200 - Fairy created
  * @param {string} name.body.required - Fairy Name
  * @param {string} element.body.required - Fairy element
- * @param {string} gender.body - Fairy gender
+ * @param {string} health_point.body - Fairy health_point
  * @returns {Error}  default - Unexpected error
  */
 router.post('/', validate(fairySchema), createController.handle)
@@ -50,7 +50,7 @@ router.get('/:id', showController.handle)
  * @returns {object} 200 - Fairy updated
  * @param {string} name.body.required - Fairy Name
  * @param {string} element.body.required - Fairy element
- * @param {string} gender.body - Fairy gender
+ * @param {string} health_point.body - Fairy health_point
  * @returns {Error}  default - Unexpected error
  */
  router.put('/:id', validate(fairySchema), updateController.handle)
