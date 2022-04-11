@@ -7,7 +7,7 @@ import spellRoutes from './spell.routes'
 const router = Router()
 
 router.get('/', (request: Request, response: Response) => {
-    response.send('Hello World')
+    response.json({ hello: 'Welcome to Vila do Front API - Resilia' })
 })
 
 router.use('/contacts', contactRoutes)
