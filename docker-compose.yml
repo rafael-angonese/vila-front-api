@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: vila
+      MONGO_INITDB_ROOT_USERNAME: vila
+      MONGO_INITDB_ROOT_PASSWORD: vila
+    ports:
+      - "27017:27017"
