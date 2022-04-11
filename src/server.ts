@@ -1,5 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors'
+import 'dotenv'
 
 import routes from './routes'
 import swaggerOptions from './config/swagger.conf'
