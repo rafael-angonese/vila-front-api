@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node build/index.js",
-    "build": "prisma generate && tsc --build",
+    "prepare": "yarn prisma generate",
+    "build": "tsc --build",
     "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only --ignore-watch node_modules --exit-child src/server.ts",
     "migrate": "prisma migrate dev",
     "generate": "prisma generate"
