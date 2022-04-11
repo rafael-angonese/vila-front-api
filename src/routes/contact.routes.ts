@@ -3,6 +3,8 @@ import { CreateContactController } from '../controllers/contact/CreateContactCon
 import { ListContactController } from '../controllers/contact/ListContactController'
 import { ShowContactController } from '../controllers/contact/ShowContactController'
 import { DeleteContactController } from '../controllers/contact/DeleteContactController'
+import contactSchema from '../validators/contact.schema'
+import validate from '../middlewares/yup-validator'
 
 const createController = new CreateContactController()
 const listController = new ListContactController()
@@ -29,7 +31,7 @@ router.get('/', listController.handle)
  * @param {string} phone.body - Contact phone
  * @returns {Error}  default - Unexpected error
  */
-router.post('/', createController.handle)
+router.post('/', validate(contactSchema), createController.handle)
 
 
 /**
