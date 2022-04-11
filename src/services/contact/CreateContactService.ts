@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { Contact } from "../../../prisma/client";
 import { prismaClient } from "../../database/prismaClient";
 import { PrismaError } from "../../errors/PrismaError";
 
@@ -9,7 +9,7 @@ type ContactRequest = {
 };
 
 export class CreateContactService {
-    async execute(contactParams: ContactRequest): Promise<PrismaClient['Contact']> {
+    async execute(contactParams: ContactRequest): Promise<Contact> {
 
         try {
             const contact = await prismaClient.contact.create({

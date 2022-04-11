@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { Fairy } from "../../../prisma/client";
 import { prismaClient } from "../../database/prismaClient";
 import { NotFoundError } from "../../errors/NotFoundError";
 import { PrismaError } from "../../errors/PrismaError";
@@ -6,7 +6,7 @@ import { ShowFairyService } from "./ShowFairyService";
 
 const showService = new ShowFairyService();
 export class DeleteFairyService {
-    async execute(id: string): Promise<PrismaClient['Fairy']> {
+    async execute(id: string): Promise<Fairy> {
 
         const fairy = await showService.execute(id)
 

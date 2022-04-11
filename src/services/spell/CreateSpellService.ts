@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { Spell } from "../../../prisma/client";
 import { prismaClient } from "../../database/prismaClient";
 import { PrismaError } from "../../errors/PrismaError";
 
@@ -10,7 +10,7 @@ type SpellRequest = {
 };
 
 export class CreateSpellService {
-    async execute(spellParams: SpellRequest): Promise<PrismaClient['Spell']> {
+    async execute(spellParams: SpellRequest): Promise<Spell> {
 
         try {
             const spell = await prismaClient.spell.create({

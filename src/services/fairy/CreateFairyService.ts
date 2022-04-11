@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { Fairy } from "../../../prisma/client";
 import { prismaClient } from "../../database/prismaClient";
 import { PrismaError } from "../../errors/PrismaError";
 
@@ -9,7 +9,7 @@ type FairyRequest = {
 };
 
 export class CreateFairyService {
-    async execute(fairyParams: FairyRequest): Promise<PrismaClient['Fairy']> {
+    async execute(fairyParams: FairyRequest): Promise<Fairy> {
 
         try {
             const fairy = await prismaClient.fairy.create({

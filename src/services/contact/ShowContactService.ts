@@ -1,9 +1,9 @@
-import { PrismaClient } from "@prisma/client";
+import { Contact } from "../../../prisma/client";
 import { prismaClient } from "../../database/prismaClient";
 import { PrismaError } from "../../errors/PrismaError";
 
 export class ShowContactService {
-    async execute(id: string): Promise<PrismaClient['Contact']> {
+    async execute(id: string): Promise<Contact | null> {
 
         try {
             const contact = await prismaClient.contact.findUnique({

@@ -1,12 +1,12 @@
-import { PrismaClient } from "@prisma/client";
+import { Fairy } from "../../../prisma/client";
 import { prismaClient } from "../../database/prismaClient";
 import { PrismaError } from "../../errors/PrismaError";
 
 export class ShowFairyService {
-    async execute(id: string): Promise<PrismaClient['Fairy']> {
+    async execute(id: string): Promise<Fairy | null> {
 
         try {
-            const fairy = await prismaClient.fairy.findUnique({
+            const fairy = await prismaClient.fairy.findFirst({
                 where: {
                     id
                 },
