@@ -28,7 +28,7 @@ router.get('/', listController.handle)
  * @returns {object} 200 - Contact created
  * @param {string} name.body.required - Contact Name
  * @param {string} email.body.required - Contact email
- * @param {string} phone.body - Contact phone
+ * @param {string} phone.body.required - Contact phone
  * @returns {Error}  default - Unexpected error
  */
 router.post('/', validate(contactSchema), createController.handle)

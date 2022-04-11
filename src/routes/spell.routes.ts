@@ -30,8 +30,8 @@ router.get('/', listController.handle)
  * @returns {object} 200 - Spell created
  * @param {string} name.body.required - Spell Name
  * @param {string} element.body.required - Spell element
- * @param {string} spell_word.body - Spell gender
- * @param {number} mana.body - Spell mana
+ * @param {string} spell_word.body.required - Spell gender
+ * @param {number} mana.body.required - Spell mana
  * @returns {Error}  default - Unexpected error
  */
 router.post('/', validate(spellSchema), createController.handle)
@@ -51,8 +51,8 @@ router.get('/:id', showController.handle)
  * @returns {object} 200 - Spell updated
  * @param {string} name.body.required - Spell Name
  * @param {string} element.body.required - Spell element
- * @param {string} spell_word.body - Spell gender
- * @param {number} mana.body - Spell mana
+ * @param {string} spell_word.body.required - Spell gender
+ * @param {number} mana.body.required - Spell mana
  * @returns {Error}  default - Unexpected error
  */
  router.put('/:id', validate(spellSchema), updateController.handle)
