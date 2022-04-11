@@ -27,3 +27,13 @@ model Fairy {
 
   @@map("fairies")
 }
+
+model Spell {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  element String
+  spell_word String
+  mana Int
+
+  @@map("spells")
+}
