@@ -1,10 +1,16 @@
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors'
 import 'dotenv'
+import cors from 'cors'
 
 import routes from './routes'
 import swaggerOptions from './config/swagger.conf'
 import AppError from './errors/AppError';
+
+const corsOptions = {
+    origin: '*',
+    credentials: true,
+}
 
 const app = express()
 
@@ -12,6 +18,7 @@ const expressSwagger = require('express-swagger-generator')(app)
 expressSwagger(swaggerOptions)
 
 app.use(express.json())
+app.use(cors(corsOptions))
 app.use(routes)
 
 app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
