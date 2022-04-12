@@ -12,7 +12,7 @@ const validate = (schema: SchemaOf<unknown>) => async (request: Request, respons
     try {
         await schema.validate(
             request.body,
-            { abortEarly: false });
+            { abortEarly: false,  strict: true });
 
         return next();
     } catch (error) {
