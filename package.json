@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "engines": {
-    "node": "14.14.0"
+    "node": "14.19.0"
   },
   "scripts": {
     "start": "node -r dotenv/config public/server.js",
