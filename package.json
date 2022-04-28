@@ -4,10 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "engines": {
-    "node": "14.19.0"
+    "node": "16.14.0"
   },
   "scripts": {
-    "start": "node -r dotenv/config public/server.js",
+    "start": "node -r dotenv/config dist/server.js",
     "prepare": "yarn prisma generate",
     "build": "tsc --build",
     "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only --ignore-watch node_modules --exit-child src/server.ts",
